@@ -27,6 +27,10 @@
       "type": "string",
       "description": "Optional stamp-button label, e.g. \"Enquire now\""
     },
+    "ctaLink": {
+      "type": "string",
+      "description": "In-app route the CTA navigates to, e.g. /booking/sevenrooms"
+    },
     "image": {
       "type": "media",
       "multiple": false,

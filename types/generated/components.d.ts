@@ -61,6 +61,7 @@ export interface SectionsContent extends Struct.ComponentSchema {
       Schema.Attribute.DefaultTo<0.4>;
     body: Schema.Attribute.Text & Schema.Attribute.Required;
     cta: Schema.Attribute.String;
+    ctaLink: Schema.Attribute.String;
     heading: Schema.Attribute.String & Schema.Attribute.Required;
     image: Schema.Attribute.Media<'images' | 'videos'>;
     subheading: Schema.Attribute.String;
