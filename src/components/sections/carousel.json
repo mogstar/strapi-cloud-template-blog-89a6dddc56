@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_sections_carousels",
+  "info": {
+    "displayName": "Carousel section",
+    "icon": "list",
+    "description": "Horizontal scroll of cards (events, editorial)"
+  },
+  "options": {},
+  "attributes": {
+    "subheading": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "body": {
+      "type": "text",
+      "required": true
+    },
+    "background": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "backgroundOpacity": {
+      "type": "decimal",
+      "default": 0.3,
+      "min": 0,
+      "max": 1
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sections.carousel-item"
+    }
+  }
+}

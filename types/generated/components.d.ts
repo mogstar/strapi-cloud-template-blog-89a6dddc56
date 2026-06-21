@@ -1,53 +1,104 @@
-import type { Struct, Schema } from '@strapi/strapi';
+import type { Schema, Struct } from '@strapi/strapi';
 
-export interface SharedSlider extends Struct.ComponentSchema {
-  collectionName: 'components_shared_sliders';
+export interface SectionsCarousel extends Struct.ComponentSchema {
+  collectionName: 'components_sections_carousels';
   info: {
-    displayName: 'Slider';
-    icon: 'address-book';
-    description: '';
+    description: 'Horizontal scroll of cards (events, editorial)';
+    displayName: 'Carousel section';
+    icon: 'list';
   };
   attributes: {
-    files: Schema.Attribute.Media<'images', true>;
+    background: Schema.Attribute.Media<'images'>;
+    backgroundOpacity: Schema.Attribute.Decimal &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 1;
+          min: 0;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<0.3>;
+    body: Schema.Attribute.Text & Schema.Attribute.Required;
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
+    items: Schema.Attribute.Component<'sections.carousel-item', true>;
+    subheading: Schema.Attribute.String;
   };
 }
 
-export interface SharedSeo extends Struct.ComponentSchema {
-  collectionName: 'components_shared_seos';
+export interface SectionsCarouselItem extends Struct.ComponentSchema {
+  collectionName: 'components_sections_carousel_items';
   info: {
-    name: 'Seo';
-    icon: 'allergies';
-    displayName: 'Seo';
-    description: '';
+    description: 'Single card within a carousel section (event or editorial piece)';
+    displayName: 'Carousel item';
+    icon: 'calendar';
   };
   attributes: {
-    metaTitle: Schema.Attribute.String & Schema.Attribute.Required;
-    metaDescription: Schema.Attribute.Text & Schema.Attribute.Required;
-    shareImage: Schema.Attribute.Media<'images'>;
+    date: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    location: Schema.Attribute.String;
+    tags: Schema.Attribute.JSON;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
-export interface SharedRichText extends Struct.ComponentSchema {
-  collectionName: 'components_shared_rich_texts';
+export interface SectionsContent extends Struct.ComponentSchema {
+  collectionName: 'components_sections_contents';
   info: {
-    displayName: 'Rich text';
-    icon: 'align-justify';
-    description: '';
+    description: 'Image + copy block (join us, riyadh, dining, etc.)';
+    displayName: 'Content section';
+    icon: 'layout';
   };
   attributes: {
-    body: Schema.Attribute.RichText;
+    background: Schema.Attribute.Media<'images'>;
+    backgroundOpacity: Schema.Attribute.Decimal &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 1;
+          min: 0;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<0.4>;
+    body: Schema.Attribute.Text & Schema.Attribute.Required;
+    cta: Schema.Attribute.String;
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images' | 'videos'>;
+    subheading: Schema.Attribute.String;
+    video: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
   };
 }
 
-export interface SharedQuote extends Struct.ComponentSchema {
-  collectionName: 'components_shared_quotes';
+export interface SectionsFullBleed extends Struct.ComponentSchema {
+  collectionName: 'components_sections_full_bleeds';
   info: {
-    displayName: 'Quote';
-    icon: 'indent';
+    description: 'Single image with text overlay (about attach\u00E9)';
+    displayName: 'Full-bleed section';
+    icon: 'picture';
   };
   attributes: {
-    title: Schema.Attribute.String;
-    body: Schema.Attribute.Text;
+    body: Schema.Attribute.Text & Schema.Attribute.Required;
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images' | 'videos'>;
+    linkLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Explore'>;
+  };
+}
+
+export interface SectionsHero extends Struct.ComponentSchema {
+  collectionName: 'components_sections_heroes';
+  info: {
+    description: 'Full-bleed top-of-homepage banner';
+    displayName: 'Hero';
+    icon: 'landscape';
+  };
+  attributes: {
+    ctaPrimaryLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Book'>;
+    ctaSecondaryLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Profile'>;
+    heading: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'welcome to attach\u00E9'>;
+    image: Schema.Attribute.Media<'images' | 'videos'>;
   };
 }
 
@@ -62,14 +113,70 @@ export interface SharedMedia extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedQuote extends Struct.ComponentSchema {
+  collectionName: 'components_shared_quotes';
+  info: {
+    displayName: 'Quote';
+    icon: 'indent';
+  };
+  attributes: {
+    body: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface SharedRichText extends Struct.ComponentSchema {
+  collectionName: 'components_shared_rich_texts';
+  info: {
+    description: '';
+    displayName: 'Rich text';
+    icon: 'align-justify';
+  };
+  attributes: {
+    body: Schema.Attribute.RichText;
+  };
+}
+
+export interface SharedSeo extends Struct.ComponentSchema {
+  collectionName: 'components_shared_seos';
+  info: {
+    description: '';
+    displayName: 'Seo';
+    icon: 'allergies';
+    name: 'Seo';
+  };
+  attributes: {
+    metaDescription: Schema.Attribute.Text & Schema.Attribute.Required;
+    metaTitle: Schema.Attribute.String & Schema.Attribute.Required;
+    shareImage: Schema.Attribute.Media<'images'>;
+  };
+}
+
+export interface SharedSlider extends Struct.ComponentSchema {
+  collectionName: 'components_shared_sliders';
+  info: {
+    description: '';
+    displayName: 'Slider';
+    icon: 'address-book';
+  };
+  attributes: {
+    files: Schema.Attribute.Media<'images', true>;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'shared.slider': SharedSlider;
-      'shared.seo': SharedSeo;
-      'shared.rich-text': SharedRichText;
-      'shared.quote': SharedQuote;
+      'sections.carousel': SectionsCarousel;
+      'sections.carousel-item': SectionsCarouselItem;
+      'sections.content': SectionsContent;
+      'sections.full-bleed': SectionsFullBleed;
+      'sections.hero': SectionsHero;
       'shared.media': SharedMedia;
+      'shared.quote': SharedQuote;
+      'shared.rich-text': SharedRichText;
+      'shared.seo': SharedSeo;
+      'shared.slider': SharedSlider;
     }
   }
 }

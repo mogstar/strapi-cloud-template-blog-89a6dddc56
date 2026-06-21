@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "homepages",
+  "info": {
+    "singularName": "homepage",
+    "pluralName": "homepages",
+    "displayName": "Homepage",
+    "description": "Editorial sections for the Attaché app home screen, below the loyalty/membership card"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "sections.hero",
+        "sections.content",
+        "sections.carousel",
+        "sections.full-bleed"
+      ]
+    }
+  }
+}

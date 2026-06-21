@@ -1,0 +1,50 @@
+{
+  "collectionName": "components_sections_contents",
+  "info": {
+    "displayName": "Content section",
+    "icon": "layout",
+    "description": "Image + copy block (join us, riyadh, dining, etc.)"
+  },
+  "options": {},
+  "attributes": {
+    "subheading": {
+      "type": "string",
+      "description": "Handwritten script accent above the heading, e.g. \"dining\""
+    },
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "body": {
+      "type": "text",
+      "required": true
+    },
+    "video": {
+      "type": "boolean",
+      "default": false
+    },
+    "cta": {
+      "type": "string",
+      "description": "Optional stamp-button label, e.g. \"Enquire now\""
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images", "videos"]
+    },
+    "background": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"],
+      "description": "Decorative security-paper pattern behind the section"
+    },
+    "backgroundOpacity": {
+      "type": "decimal",
+      "default": 0.4,
+      "min": 0,
+      "max": 1
+    }
+  }
+}

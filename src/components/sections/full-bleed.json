@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_sections_full_bleeds",
+  "info": {
+    "displayName": "Full-bleed section",
+    "icon": "picture",
+    "description": "Single image with text overlay (about attaché)"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "body": {
+      "type": "text",
+      "required": true
+    },
+    "linkLabel": {
+      "type": "string",
+      "default": "Explore"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images", "videos"]
+    }
+  }
+}
