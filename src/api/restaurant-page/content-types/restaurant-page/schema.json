@@ -25,6 +25,11 @@
       "type": "component",
       "repeatable": false,
       "component": "shared.contact-info"
+    },
+    "menuCategories": {
+      "type": "component",
+      "repeatable": true,
+      "component": "restaurant.menu-category"
     }
   }
 }

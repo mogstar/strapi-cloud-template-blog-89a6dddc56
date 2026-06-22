@@ -1,5 +1,48 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface RestaurantMenuCategory extends Struct.ComponentSchema {
+  collectionName: 'components_restaurant_menu_categories';
+  info: {
+    description: 'A top-level nutrition menu tab (e.g. "Healthy Bites")';
+    displayName: 'Menu Category';
+  };
+  attributes: {
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    sections: Schema.Attribute.Component<'restaurant.menu-section', true>;
+  };
+}
+
+export interface RestaurantMenuItem extends Struct.ComponentSchema {
+  collectionName: 'components_restaurant_menu_items';
+  info: {
+    description: 'A single dish within a nutrition/restaurant menu section';
+    displayName: 'Menu Item';
+  };
+  attributes: {
+    dairyFree: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    description: Schema.Attribute.Text;
+    glutenFree: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    image: Schema.Attribute.Media<'images'>;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    nutFree: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    spicy: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    vegan: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    vegetarian: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+  };
+}
+
+export interface RestaurantMenuSection extends Struct.ComponentSchema {
+  collectionName: 'components_restaurant_menu_sections';
+  info: {
+    description: 'A named group of menu items within a category, rendered as an accordion (e.g. "Salads")';
+    displayName: 'Menu Section';
+  };
+  attributes: {
+    items: Schema.Attribute.Component<'restaurant.menu-item', true>;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SectionsCarousel extends Struct.ComponentSchema {
   collectionName: 'components_sections_carousels';
   info: {
@@ -212,6 +255,9 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'restaurant.menu-category': RestaurantMenuCategory;
+      'restaurant.menu-item': RestaurantMenuItem;
+      'restaurant.menu-section': RestaurantMenuSection;
       'sections.carousel': SectionsCarousel;
       'sections.carousel-item': SectionsCarouselItem;
       'sections.content': SectionsContent;

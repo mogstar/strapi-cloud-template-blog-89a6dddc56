@@ -179,6 +179,7 @@ async function seedRestaurant() {
         heading: 'come hungry. leave speechless.',
         body: LOREM,
         cta: 'View menu',
+        ctaLink: '/amenities/restaurant-nutrition-menu',
         image: menu.id,
         background: menuBg.id,
         backgroundOpacity: 0.4,
@@ -194,6 +195,67 @@ async function seedRestaurant() {
       },
     ],
     contact: CONTACT,
+    menuCategories: [
+      {
+        name: 'Healthy Bites',
+        sections: [
+          {
+            name: 'Salads',
+            items: [
+              {
+                name: 'Quinoa Tabbouleh',
+                description: 'Parsley, mint, tomato, quinoa, lemon dressing.',
+                vegan: true,
+                glutenFree: true,
+              },
+              {
+                name: 'Caesar Salad',
+                description: 'Romaine, parmesan, croutons, grilled chicken.',
+                vegetarian: false,
+              },
+            ],
+          },
+          {
+            name: 'Bowls',
+            items: [
+              {
+                name: 'Buddha Bowl',
+                description: 'Roasted vegetables, chickpeas, tahini, brown rice.',
+                vegan: true,
+                glutenFree: true,
+                dairyFree: true,
+              },
+              {
+                name: 'Acai Bowl',
+                description: 'Acai, granola, banana, berries, honey.',
+                vegetarian: true,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: 'Protein Bowls',
+        sections: [
+          {
+            name: 'Power Plates',
+            items: [
+              {
+                name: 'Grilled Chicken Bowl',
+                description: 'Grilled chicken, sweet potato, broccoli, quinoa.',
+                glutenFree: true,
+                dairyFree: true,
+              },
+              {
+                name: 'Salmon Poke',
+                description: 'Seared salmon, edamame, avocado, sushi rice.',
+                dairyFree: true,
+              },
+            ],
+          },
+        ],
+      },
+    ],
   });
 }
 

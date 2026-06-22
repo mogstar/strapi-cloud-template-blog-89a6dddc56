@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_restaurant_menu_categories",
+  "info": {
+    "displayName": "Menu Category",
+    "description": "A top-level nutrition menu tab (e.g. \"Healthy Bites\")"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "sections": {
+      "type": "component",
+      "repeatable": true,
+      "component": "restaurant.menu-section"
+    }
+  }
+}

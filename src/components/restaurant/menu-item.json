@@ -1,0 +1,46 @@
+{
+  "collectionName": "components_restaurant_menu_items",
+  "info": {
+    "displayName": "Menu Item",
+    "description": "A single dish within a nutrition/restaurant menu section"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "vegan": {
+      "type": "boolean",
+      "default": false
+    },
+    "vegetarian": {
+      "type": "boolean",
+      "default": false
+    },
+    "glutenFree": {
+      "type": "boolean",
+      "default": false
+    },
+    "dairyFree": {
+      "type": "boolean",
+      "default": false
+    },
+    "nutFree": {
+      "type": "boolean",
+      "default": false
+    },
+    "spicy": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

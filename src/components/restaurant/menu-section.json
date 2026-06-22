@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_restaurant_menu_sections",
+  "info": {
+    "displayName": "Menu Section",
+    "description": "A named group of menu items within a category, rendered as an accordion (e.g. \"Salads\")"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "restaurant.menu-item"
+    }
+  }
+}

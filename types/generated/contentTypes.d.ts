@@ -765,6 +765,10 @@ export interface ApiRestaurantPageRestaurantPage
       'api::restaurant-page.restaurant-page'
     > &
       Schema.Attribute.Private;
+    menuCategories: Schema.Attribute.Component<
+      'restaurant.menu-category',
+      true
+    >;
     publishedAt: Schema.Attribute.DateTime;
     sections: Schema.Attribute.DynamicZone<
       ['sections.content', 'sections.carousel', 'sections.full-bleed']
