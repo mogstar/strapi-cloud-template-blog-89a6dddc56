@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "restaurant_pages",
+  "info": {
+    "singularName": "restaurant-page",
+    "pluralName": "restaurant-pages",
+    "displayName": "Restaurant Page",
+    "description": "Editorial content for the Restaurant & Shisha amenity landing page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.hero"
+    },
+    "sections": {
+      "type": "dynamiczone",
+      "components": ["sections.content", "sections.carousel", "sections.full-bleed"]
+    },
+    "contact": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.contact-info"
+    }
+  }
+}

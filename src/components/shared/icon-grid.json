@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_shared_icon_grids",
+  "info": {
+    "displayName": "Icon grid",
+    "icon": "grid",
+    "description": "Title + body + 2x3 icon-item grid sheet (Pool Club Rules, Gym Additional Services)"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "body": {
+      "type": "text"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.icon-item"
+    }
+  }
+}

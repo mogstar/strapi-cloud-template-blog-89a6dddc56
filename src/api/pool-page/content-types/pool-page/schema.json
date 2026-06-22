@@ -1,0 +1,35 @@
+{
+  "kind": "singleType",
+  "collectionName": "pool_pages",
+  "info": {
+    "singularName": "pool-page",
+    "pluralName": "pool-pages",
+    "displayName": "Pool Page",
+    "description": "Editorial content for the Pool amenity landing page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.hero"
+    },
+    "sections": {
+      "type": "dynamiczone",
+      "components": ["sections.content", "sections.carousel", "sections.full-bleed"]
+    },
+    "rules": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.icon-grid"
+    },
+    "contact": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.contact-info"
+    }
+  }
+}

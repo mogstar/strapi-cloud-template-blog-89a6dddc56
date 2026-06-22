@@ -92,6 +92,7 @@ export interface SectionsHero extends Struct.ComponentSchema {
     icon: 'landscape';
   };
   attributes: {
+    body: Schema.Attribute.Text;
     ctaPrimaryLabel: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'Book'>;
     ctaSecondaryLabel: Schema.Attribute.String &
@@ -100,6 +101,49 @@ export interface SectionsHero extends Struct.ComponentSchema {
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'welcome to attach\u00E9'>;
     image: Schema.Attribute.Media<'images' | 'videos'>;
+  };
+}
+
+export interface SharedContactInfo extends Struct.ComponentSchema {
+  collectionName: 'components_shared_contact_infos';
+  info: {
+    description: "Address/hours/phone/email shown in an amenity's Contact Us sheet";
+    displayName: 'Contact info';
+    icon: 'phone';
+  };
+  attributes: {
+    address: Schema.Attribute.String;
+    body: Schema.Attribute.Text;
+    email: Schema.Attribute.String;
+    hours: Schema.Attribute.String;
+    phone: Schema.Attribute.String;
+  };
+}
+
+export interface SharedIconGrid extends Struct.ComponentSchema {
+  collectionName: 'components_shared_icon_grids';
+  info: {
+    description: 'Title + body + 2x3 icon-item grid sheet (Pool Club Rules, Gym Additional Services)';
+    displayName: 'Icon grid';
+    icon: 'grid';
+  };
+  attributes: {
+    body: Schema.Attribute.Text;
+    items: Schema.Attribute.Component<'shared.icon-item', true>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedIconItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_icon_items';
+  info: {
+    description: 'Single icon + label row within an icon-grid sheet (rules, additional services)';
+    displayName: 'Icon item';
+    icon: 'grid';
+  };
+  attributes: {
+    icon: Schema.Attribute.String & Schema.Attribute.Required;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -173,6 +217,9 @@ declare module '@strapi/strapi' {
       'sections.content': SectionsContent;
       'sections.full-bleed': SectionsFullBleed;
       'sections.hero': SectionsHero;
+      'shared.contact-info': SharedContactInfo;
+      'shared.icon-grid': SharedIconGrid;
+      'shared.icon-item': SharedIconItem;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

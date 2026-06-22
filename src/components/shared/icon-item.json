@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_shared_icon_items",
+  "info": {
+    "displayName": "Icon item",
+    "icon": "grid",
+    "description": "Single icon + label row within an icon-grid sheet (rules, additional services)"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "string",
+      "required": true,
+      "description": "Ionicons name, e.g. \"shirt-outline\""
+    },
+    "label": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

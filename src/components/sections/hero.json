@@ -12,6 +12,10 @@
       "required": true,
       "default": "welcome to attaché"
     },
+    "body": {
+      "type": "text",
+      "description": "Optional subtitle copy under the heading — used by amenity-page heroes, not the homepage hero"
+    },
     "image": {
       "type": "media",
       "multiple": false,

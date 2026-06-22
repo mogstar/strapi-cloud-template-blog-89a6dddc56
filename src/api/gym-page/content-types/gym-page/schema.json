@@ -1,0 +1,35 @@
+{
+  "kind": "singleType",
+  "collectionName": "gym_pages",
+  "info": {
+    "singularName": "gym-page",
+    "pluralName": "gym-pages",
+    "displayName": "Gym Page",
+    "description": "Editorial content for the Gym amenity landing page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.hero"
+    },
+    "sections": {
+      "type": "dynamiczone",
+      "components": ["sections.content", "sections.carousel", "sections.full-bleed"]
+    },
+    "additionalServices": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.icon-grid"
+    },
+    "contact": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.contact-info"
+    }
+  }
+}

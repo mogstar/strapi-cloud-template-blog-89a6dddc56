@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_shared_contact_infos",
+  "info": {
+    "displayName": "Contact info",
+    "icon": "phone",
+    "description": "Address/hours/phone/email shown in an amenity's Contact Us sheet"
+  },
+  "options": {},
+  "attributes": {
+    "body": {
+      "type": "text",
+      "description": "Directions / accessibility blurb"
+    },
+    "hours": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    }
+  }
+}
