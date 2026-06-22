@@ -573,6 +573,38 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiDiscoverPageDiscoverPage extends Struct.SingleTypeSchema {
+  collectionName: 'discover_pages';
+  info: {
+    description: 'Editorial content for the Discover tab';
+    displayName: 'Discover Page';
+    pluralName: 'discover-pages';
+    singularName: 'discover-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    hero: Schema.Attribute.Component<'sections.hero', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::discover-page.discover-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    sections: Schema.Attribute.DynamicZone<
+      ['sections.content', 'sections.carousel', 'sections.full-bleed']
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -1291,6 +1323,7 @@ declare module '@strapi/strapi' {
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
+      'api::discover-page.discover-page': ApiDiscoverPageDiscoverPage;
       'api::global.global': ApiGlobalGlobal;
       'api::gym-page.gym-page': ApiGymPageGymPage;
       'api::homepage.homepage': ApiHomepageHomepage;

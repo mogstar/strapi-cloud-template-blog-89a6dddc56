@@ -218,6 +218,7 @@ async function main() {
     'api::gym-page.gym-page',
     'api::restaurant-page.restaurant-page',
     'api::room-page.room-page',
+    'api::discover-page.discover-page',
   ]) {
     await setPublicPermissions(uid);
   }

@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "discover_pages",
+  "info": {
+    "singularName": "discover-page",
+    "pluralName": "discover-pages",
+    "displayName": "Discover Page",
+    "description": "Editorial content for the Discover tab"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.hero"
+    },
+    "sections": {
+      "type": "dynamiczone",
+      "components": ["sections.content", "sections.carousel", "sections.full-bleed"]
+    }
+  }
+}
