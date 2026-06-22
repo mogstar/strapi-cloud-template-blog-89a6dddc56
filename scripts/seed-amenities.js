@@ -72,10 +72,9 @@ const CONTACT = {
 };
 
 async function seedPool() {
-  const [hero, content, contentBg, event1, event2] = await Promise.all([
+  const [hero, content, event1, event2] = await Promise.all([
     uploadFile('pool-hero.png'),
     uploadFile('pool-content.png'),
-    uploadFile('pool-content-bg.jpg'),
     uploadFile('pool-event-1.png'),
     uploadFile('pool-event-2.png'),
   ]);
@@ -89,7 +88,7 @@ async function seedPool() {
         body: LOREM,
         cta: 'Poolside menu',
         image: content.id,
-        background: contentBg.id,
+        background: 'grunge-teal',
       },
       {
         __component: 'sections.carousel',
@@ -118,12 +117,10 @@ async function seedPool() {
 }
 
 async function seedGym() {
-  const [hero, content1, contentBg1, content2, contentBg2] = await Promise.all([
+  const [hero, content1, content2] = await Promise.all([
     uploadFile('gym-hero.jpg'),
     uploadFile('gym-content-1.png'),
-    uploadFile('gym-content-bg-1.jpg'),
     uploadFile('gym-content-2.png'),
-    uploadFile('gym-content-bg-2.jpg'),
   ]);
 
   await upsertSingleType('api::gym-page.gym-page', {
@@ -135,7 +132,7 @@ async function seedGym() {
         body: LOREM,
         cta: 'Find a trainer',
         image: content1.id,
-        background: contentBg1.id,
+        background: 'damask-gold',
       },
       {
         __component: 'sections.content',
@@ -143,7 +140,7 @@ async function seedGym() {
         body: LOREM,
         cta: 'Book',
         image: content2.id,
-        background: contentBg2.id,
+        background: 'worn-paper',
       },
     ],
     additionalServices: {
@@ -163,12 +160,10 @@ async function seedGym() {
 }
 
 async function seedRestaurant() {
-  const [hero, menu, menuBg, shisha, shishaBg] = await Promise.all([
+  const [hero, menu, shisha] = await Promise.all([
     uploadFile('restaurant-hero.jpg'),
     uploadFile('restaurant-menu.jpg'),
-    uploadFile('restaurant-menu-bg.jpg'),
     uploadFile('restaurant-shisha.jpg'),
-    uploadFile('restaurant-shisha-bg.jpg'),
   ]);
 
   await upsertSingleType('api::restaurant-page.restaurant-page', {
@@ -181,7 +176,7 @@ async function seedRestaurant() {
         cta: 'View menu',
         ctaLink: '/amenities/restaurant-nutrition-menu',
         image: menu.id,
-        background: menuBg.id,
+        background: 'worn-paper',
         backgroundOpacity: 0.4,
       },
       {
@@ -190,7 +185,7 @@ async function seedRestaurant() {
         body: LOREM,
         cta: 'View shisha menu',
         image: shisha.id,
-        background: shishaBg.id,
+        background: 'art-deco-green',
         backgroundOpacity: 0.2,
       },
     ],

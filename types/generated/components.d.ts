@@ -51,7 +51,19 @@ export interface SectionsCarousel extends Struct.ComponentSchema {
     icon: 'list';
   };
   attributes: {
-    background: Schema.Attribute.Media<'images'>;
+    background: Schema.Attribute.Enumeration<
+      [
+        'passport-stamps',
+        'diamond-lilac',
+        'guilloche-waves',
+        'damask-tan',
+        'damask-gold',
+        'worn-paper',
+        'art-deco-green',
+        'diamond-blush',
+        'grunge-teal',
+      ]
+    >;
     backgroundOpacity: Schema.Attribute.Decimal &
       Schema.Attribute.SetMinMax<
         {
@@ -92,7 +104,19 @@ export interface SectionsContent extends Struct.ComponentSchema {
     icon: 'layout';
   };
   attributes: {
-    background: Schema.Attribute.Media<'images'>;
+    background: Schema.Attribute.Enumeration<
+      [
+        'passport-stamps',
+        'diamond-lilac',
+        'guilloche-waves',
+        'damask-tan',
+        'damask-gold',
+        'worn-paper',
+        'art-deco-green',
+        'diamond-blush',
+        'grunge-teal',
+      ]
+    >;
     backgroundOpacity: Schema.Attribute.Decimal &
       Schema.Attribute.SetMinMax<
         {

@@ -38,11 +38,19 @@
       "allowedTypes": ["images", "videos"]
     },
     "background": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": ["images"],
-      "description": "Decorative security-paper pattern behind the section"
+      "type": "enumeration",
+      "enum": [
+        "passport-stamps",
+        "diamond-lilac",
+        "guilloche-waves",
+        "damask-tan",
+        "damask-gold",
+        "worn-paper",
+        "art-deco-green",
+        "diamond-blush",
+        "grunge-teal"
+      ],
+      "description": "Decorative security-paper pattern behind the section — a fixed preset, not an upload"
     },
     "backgroundOpacity": {
       "type": "decimal",

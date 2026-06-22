@@ -53,24 +53,12 @@ async function setPublicPermissions() {
 }
 
 async function seedHomepage() {
-  const [
-    hero,
-    joinUs,
-    riyadh,
-    introducingBg,
-    dining,
-    diningBg,
-    about,
-    reading,
-  ] = await Promise.all([
+  const [hero, joinUs, riyadh, dining, about] = await Promise.all([
     uploadFile('hero.jpg'),
     uploadFile('join-us.jpg'),
     uploadFile('riyadh.jpg'),
-    uploadFile('introducing-bg.jpg'),
     uploadFile('dining.jpg'),
-    uploadFile('dining-bg.jpg'),
     uploadFile('about.jpg'),
-    uploadFile('reading-bg.jpg'),
   ]);
 
   const sections = [
@@ -94,7 +82,7 @@ async function seedHomepage() {
       heading: 'introducing attaché riyadh',
       body: LOREM,
       image: riyadh.id,
-      background: introducingBg.id,
+      background: 'diamond-lilac',
       backgroundOpacity: 0.4,
     },
     {
@@ -115,7 +103,7 @@ async function seedHomepage() {
       cta: 'Explore restaurant & shisha',
       ctaLink: '/booking/sevenrooms',
       image: dining.id,
-      background: diningBg.id,
+      background: 'damask-tan',
       backgroundOpacity: 0.4,
     },
     {
@@ -130,7 +118,7 @@ async function seedHomepage() {
       subheading: 'reading',
       heading: 'attaché editorial',
       body: LOREM,
-      background: reading.id,
+      background: 'guilloche-waves',
       backgroundOpacity: 0.3,
       items: [
         { title: 'Inside the Beast', date: '12.05.25', location: 'Riyadh', tags: ['Events', 'UNSTABLE'] },
