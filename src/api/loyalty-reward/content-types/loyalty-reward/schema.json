@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "loyalty_rewards",
+  "info": {
+    "singularName": "loyalty-reward",
+    "pluralName": "loyalty-rewards",
+    "displayName": "Loyalty Reward",
+    "description": "The reward catalog members browse on the Rewards screen — TalonOne has no fetchable reward-catalog endpoint, so this app/CMS owns the listing; TalonOne only executes the redemption action a reward describes."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "pointCost": {
+      "type": "integer",
+      "required": true,
+      "min": 1
+    },
+    "amenity": {
+      "type": "enumeration",
+      "enum": ["pool", "gym", "restaurant", "room", "shisha", "general"],
+      "default": "general"
+    },
+    "redemptionType": {
+      "type": "enumeration",
+      "enum": ["giveaway", "discount"],
+      "required": true,
+      "description": "giveaway = TalonOne hands out a pre-loaded code, n8n auto-books the amenity. discount = setDiscount against a real priced booking (restaurant/room only)."
+    },
+    "giveawayPoolId": {
+      "type": "string",
+      "description": "TalonOne giveaway pool ID — required when redemptionType is giveaway"
+    },
+    "discountPercent": {
+      "type": "decimal",
+      "min": 0,
+      "max": 100,
+      "description": "Required when redemptionType is discount"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

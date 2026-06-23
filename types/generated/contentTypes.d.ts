@@ -707,6 +707,62 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiLoyaltyRewardLoyaltyReward
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'loyalty_rewards';
+  info: {
+    description: 'The reward catalog members browse on the Rewards screen \u2014 TalonOne has no fetchable reward-catalog endpoint, so this app/CMS owns the listing; TalonOne only executes the redemption action a reward describes.';
+    displayName: 'Loyalty Reward';
+    pluralName: 'loyalty-rewards';
+    singularName: 'loyalty-reward';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    amenity: Schema.Attribute.Enumeration<
+      ['pool', 'gym', 'restaurant', 'room', 'shisha', 'general']
+    > &
+      Schema.Attribute.DefaultTo<'general'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    discountPercent: Schema.Attribute.Decimal &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 100;
+          min: 0;
+        },
+        number
+      >;
+    giveawayPoolId: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::loyalty-reward.loyalty-reward'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    pointCost: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    publishedAt: Schema.Attribute.DateTime;
+    redemptionType: Schema.Attribute.Enumeration<['giveaway', 'discount']> &
+      Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPoolPagePoolPage extends Struct.SingleTypeSchema {
   collectionName: 'pool_pages';
   info: {
@@ -1331,6 +1387,7 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::gym-page.gym-page': ApiGymPageGymPage;
       'api::homepage.homepage': ApiHomepageHomepage;
+      'api::loyalty-reward.loyalty-reward': ApiLoyaltyRewardLoyaltyReward;
       'api::pool-page.pool-page': ApiPoolPagePoolPage;
       'api::restaurant-page.restaurant-page': ApiRestaurantPageRestaurantPage;
       'api::room-page.room-page': ApiRoomPageRoomPage;
