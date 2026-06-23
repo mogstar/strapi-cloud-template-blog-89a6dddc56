@@ -617,6 +617,7 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
+    contact: Schema.Attribute.Component<'shared.contact-info', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -650,7 +651,6 @@ export interface ApiGymPageGymPage extends Struct.SingleTypeSchema {
   };
   attributes: {
     additionalServices: Schema.Attribute.Component<'shared.icon-grid', false>;
-    contact: Schema.Attribute.Component<'shared.contact-info', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -775,7 +775,6 @@ export interface ApiPoolPagePoolPage extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    contact: Schema.Attribute.Component<'shared.contact-info', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -810,7 +809,6 @@ export interface ApiRestaurantPageRestaurantPage
     draftAndPublish: true;
   };
   attributes: {
-    contact: Schema.Attribute.Component<'shared.contact-info', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -847,7 +845,6 @@ export interface ApiRoomPageRoomPage extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    contact: Schema.Attribute.Component<'shared.contact-info', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

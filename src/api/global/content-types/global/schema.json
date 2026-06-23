@@ -30,6 +30,12 @@
       "type": "component",
       "repeatable": false,
       "component": "shared.seo"
+    },
+    "contact": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.contact-info",
+      "description": "Single site-wide Contact Us sheet, popped up from the bottom-nav Contact tab — not per-amenity."
     }
   }
 }

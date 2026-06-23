@@ -63,14 +63,6 @@ async function upsertSingleType(uid, data) {
   }
 }
 
-const CONTACT = {
-  body: 'attaché is easily accessible via Olaya and King Fahd Road. Ample parking is available on-site.',
-  hours: 'Mon - Fri: 9:00am - 5:00pm',
-  address: '12531 Al Safarat, Riyadh',
-  email: 'info@attache.sa',
-  phone: '+966 00 000 0000',
-};
-
 async function seedPool() {
   const [hero, content, event1, event2] = await Promise.all([
     uploadFile('pool-hero.png'),
@@ -112,7 +104,6 @@ async function seedPool() {
         { icon: 'sunny-outline', label: 'No hats or sunglasses' },
       ],
     },
-    contact: CONTACT,
   });
 }
 
@@ -155,7 +146,6 @@ async function seedGym() {
         { icon: 'water-outline', label: 'Showers and Locker Rooms' },
       ],
     },
-    contact: CONTACT,
   });
 }
 
@@ -189,7 +179,6 @@ async function seedRestaurant() {
         backgroundOpacity: 0.2,
       },
     ],
-    contact: CONTACT,
     menuCategories: [
       {
         name: 'Healthy Bites',
@@ -260,7 +249,6 @@ async function seedRoom() {
   await upsertSingleType('api::room-page.room-page', {
     hero: { heading: 'room', body: LOREM, image: hero.id },
     sections: [],
-    contact: CONTACT,
   });
 }
 

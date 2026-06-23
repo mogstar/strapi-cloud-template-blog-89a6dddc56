@@ -25,11 +25,6 @@
       "type": "component",
       "repeatable": false,
       "component": "shared.icon-grid"
-    },
-    "contact": {
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.contact-info"
     }
   }
 }
