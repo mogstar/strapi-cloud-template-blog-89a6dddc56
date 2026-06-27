@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_restaurant_restaurants",
+  "info": {
+    "displayName": "Restaurant",
+    "description": "A venue on the property (e.g. \"attaché restaurant\", \"the lounge\") — like a content section, plus its own nutrition menu"
+  },
+  "options": {},
+  "attributes": {
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "subheading": {
+      "type": "string"
+    },
+    "body": {
+      "type": "text",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "background": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "menuCategories": {
+      "type": "component",
+      "repeatable": true,
+      "component": "restaurant.menu-category"
+    }
+  }
+}

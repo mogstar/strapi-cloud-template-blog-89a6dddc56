@@ -21,10 +21,10 @@
       "type": "dynamiczone",
       "components": ["sections.content", "sections.carousel", "sections.full-bleed"]
     },
-    "menuCategories": {
+    "restaurants": {
       "type": "component",
       "repeatable": true,
-      "component": "restaurant.menu-category"
+      "component": "restaurant.restaurant"
     }
   }
 }

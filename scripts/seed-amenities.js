@@ -158,82 +158,108 @@ async function seedRestaurant() {
 
   await upsertSingleType('api::restaurant-page.restaurant-page', {
     hero: { heading: 'restaurant & lounge', body: LOREM, image: hero.id },
-    sections: [
+    // Per-venue name/body/image/menu now lives on `restaurants` (repeatable
+    // restaurant.restaurant component) instead of hardcoded sections.content
+    // blocks, so each venue can carry its own nutrition menu.
+    sections: [],
+    restaurants: [
       {
-        __component: 'sections.content',
-        heading: 'come hungry. leave speechless.',
+        slug: 'attache-restaurant',
+        name: 'attaché restaurant',
         body: LOREM,
-        cta: 'View menu',
-        ctaLink: '/amenities/restaurant-nutrition-menu',
         image: menu.id,
-        background: 'worn-paper',
-        backgroundOpacity: 0.4,
-      },
-      {
-        __component: 'sections.content',
-        heading: 'not just a lounge-- a state of mind',
-        body: LOREM,
-        cta: 'View shisha menu',
-        image: shisha.id,
-        background: 'art-deco-green',
-        backgroundOpacity: 0.2,
-      },
-    ],
-    menuCategories: [
-      {
-        name: 'Healthy Bites',
-        sections: [
+        menuCategories: [
           {
-            name: 'Salads',
-            items: [
+            name: 'Healthy Bites',
+            sections: [
               {
-                name: 'Quinoa Tabbouleh',
-                description: 'Parsley, mint, tomato, quinoa, lemon dressing.',
-                vegan: true,
-                glutenFree: true,
+                name: 'Salads',
+                items: [
+                  {
+                    name: 'Quinoa Tabbouleh',
+                    description: 'Parsley, mint, tomato, quinoa, lemon dressing.',
+                    vegan: true,
+                    glutenFree: true,
+                  },
+                  {
+                    name: 'Caesar Salad',
+                    description: 'Romaine, parmesan, croutons, grilled chicken.',
+                    vegetarian: false,
+                  },
+                ],
               },
               {
-                name: 'Caesar Salad',
-                description: 'Romaine, parmesan, croutons, grilled chicken.',
-                vegetarian: false,
+                name: 'Bowls',
+                items: [
+                  {
+                    name: 'Buddha Bowl',
+                    description: 'Roasted vegetables, chickpeas, tahini, brown rice.',
+                    vegan: true,
+                    glutenFree: true,
+                    dairyFree: true,
+                  },
+                  {
+                    name: 'Acai Bowl',
+                    description: 'Acai, granola, banana, berries, honey.',
+                    vegetarian: true,
+                  },
+                ],
               },
             ],
           },
           {
-            name: 'Bowls',
-            items: [
+            name: 'Protein Bowls',
+            sections: [
               {
-                name: 'Buddha Bowl',
-                description: 'Roasted vegetables, chickpeas, tahini, brown rice.',
-                vegan: true,
-                glutenFree: true,
-                dairyFree: true,
-              },
-              {
-                name: 'Acai Bowl',
-                description: 'Acai, granola, banana, berries, honey.',
-                vegetarian: true,
+                name: 'Power Plates',
+                items: [
+                  {
+                    name: 'Grilled Chicken Bowl',
+                    description: 'Grilled chicken, sweet potato, broccoli, quinoa.',
+                    glutenFree: true,
+                    dairyFree: true,
+                  },
+                  {
+                    name: 'Salmon Poke',
+                    description: 'Seared salmon, edamame, avocado, sushi rice.',
+                    dairyFree: true,
+                  },
+                ],
               },
             ],
           },
         ],
       },
       {
-        name: 'Protein Bowls',
-        sections: [
+        slug: 'the-lounge',
+        name: 'the lounge',
+        body: LOREM,
+        image: shisha.id,
+        menuCategories: [
           {
-            name: 'Power Plates',
-            items: [
+            name: 'Shisha Flavours',
+            sections: [
               {
-                name: 'Grilled Chicken Bowl',
-                description: 'Grilled chicken, sweet potato, broccoli, quinoa.',
-                glutenFree: true,
-                dairyFree: true,
+                name: 'Classic',
+                items: [
+                  { name: 'Double Apple', description: 'The house classic.' },
+                  { name: 'Mint', description: 'Cool and refreshing.' },
+                ],
               },
               {
-                name: 'Salmon Poke',
-                description: 'Seared salmon, edamame, avocado, sushi rice.',
-                dairyFree: true,
+                name: 'Specialty',
+                items: [
+                  { name: 'Grape Mint', description: 'Sweet grape with a cool finish.' },
+                ],
+              },
+            ],
+          },
+          {
+            name: 'Drinks',
+            sections: [
+              {
+                name: 'Mocktails',
+                items: [{ name: 'Virgin Mojito', description: 'Lime, mint, soda.', vegan: true }],
               },
             ],
           },
